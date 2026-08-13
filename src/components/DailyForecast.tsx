@@ -1,5 +1,6 @@
 import type { WeatherSchema } from "../schemas/weatherSchema";
 import Card from "./Card"
+import WeatherIcon from "./WeatherIcon";
 
 type Props = {
   daily: WeatherSchema["daily"];
@@ -14,10 +15,7 @@ const DailyForecast = ({daily}: Props) => {
                     {new Date(day.dt * 1000).toLocaleDateString( undefined,{
                     weekday: "short" 
                 })}</p>
-                <img
-                    className="size-6"
-                    src={`https://openweathermap.org/payload/api/media/file/${day.weather[0].icon}.png`}
-                    alt="Weather Icon" />
+            <WeatherIcon src={day.weather[0].icon}/>
             <p>{Math.round(day.temp.day)}°</p>
             <p className="text-gray-500/75">{Math.round(day.temp.day)}°</p>
             <p className="text-gray-500/75">{Math.round(day.temp.day)}°</p>
