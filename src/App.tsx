@@ -3,6 +3,7 @@ import { getWeather } from "./api";
 import DailyForecast from "./components/DailyForecast";
 import HourlyForecast from "./components/HourlyForecast";
 import CurrentWeather from "./components/CurrentWeather";
+import AdditionalInfo from "./components/AdditionalInfo";
 
 function App() {
   const {data, isLoading} = useQuery({
@@ -22,6 +23,7 @@ function App() {
       <CurrentWeather current={data?.current} timeZone={timezone} />
       <HourlyForecast hourly={data?.hourly}/>
       <DailyForecast daily={data?.daily}/>
+      <AdditionalInfo data={data} />
     </div>
   )
 }
